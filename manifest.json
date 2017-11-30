@@ -3,11 +3,7 @@
   "name": "sb-newTab",
 	"manifest_version": 2,
 	"version": "0.0.1",
-  "default_locale": "it",
   "description": "A very simple new tab",
-  "icons": { "16": "icon16.png",
-           "48": "icon48.png",
-          "128": "icon128.png" },
 
   "chrome_url_overrides" : {
     "newtab": "sb-newTab.html"
