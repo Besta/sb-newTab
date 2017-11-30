@@ -1,5 +1,4 @@
-function myCount() {
-
+var myCount = function() {
 	var d = new Date();
 	var h = d.getHours();
 	var m = d.getMinutes();
@@ -14,15 +13,14 @@ function myCount() {
 	$('.js-seconds').html(s);
 }
 
-function timeCheck(i) {
-	if (i < 10) {
-			i = "0" + i;
+var timeCheck = function(num) {
+	if (num < 10) {
+			num = "0" + num;
 	}
-	return i;
+	return num;
 }
 
-
-function stampSites(sites) {
+var stampSites = function(sites) {
 	for(var i = 0; i < 8; i++){
 		var element = $(".js-sites__"+(i+1));
 
@@ -32,16 +30,21 @@ function stampSites(sites) {
 	}
 }
 
+
 $(document).ready(function(){
 	myCount();
 	setInterval(function () {
 		myCount();
 	}, 1000);
 
-	var date = new Date();
-	var day = date.getDay();
+	var date = new Date(),
+			day = date.getDay(),
+			month = date.getMonth();
 
 	switch (day) {
+		case 0:
+			day = "Domenica";
+			break;
 		case 1:
 			day = "Lunedì";
 			break;
@@ -60,12 +63,48 @@ $(document).ready(function(){
 		case 6:
 			day = "Sabato";
 			break;
+	}
+
+	switch (month) {
 		case 0:
-			day = "Domenica";
+			month = "Gennaio";
+			break;
+		case 1:
+			month = "Febbraio";
+			break;
+		case 2:
+			month = "Marzo";
+			break;
+		case 3:
+			month = "Aprile";
+			break;
+		case 4:
+			month = "Maggio";
+			break;
+		case 5:
+			month = "Giugno";
+			break;
+		case 6:
+			month = "Luglio";
+			break;
+		case 7:
+			month = "Agosto";
+			break;
+		case 8:
+			month = "Settembre";
+			break;
+		case 9:
+			month = "Ottobre";
+			break;
+		case 10:
+			month = "Novembre";
+			break;
+		case 11:
+			month = "Dicembre";
 			break;
 	}
 
-	document.getElementById('date').innerHTML = day + " " + date.getDate() + "/" + date.getMonth();
+	$('.js-date').html(day + " " + date.getDate() + " " + month);
 
 	chrome.topSites.get(stampSites);
 });
