@@ -8,8 +8,8 @@
   },
 
 	"web_accessible_resources": [
-    "style/double-rainbow.css",
-		"script/jquery-3.2.1.min.js",
-		"script/sb-newTab.js"
+		"script/*",
+		"style/*",
+    "font/*"
   ]
 }
