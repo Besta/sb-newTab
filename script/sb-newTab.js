@@ -4,16 +4,16 @@ var myCount = function() {
 	var m = d.getMinutes();
 	var s = d.getSeconds();
 
-	h = timeCheck(h);
-	m = timeCheck(m);
-	s = timeCheck(s);
+	h = doubleDigitCheck(h);
+	m = doubleDigitCheck(m);
+	s = doubleDigitCheck(s);
 
 	$('.js-hours').html(h);
 	$('.js-minutes').html(m);
 	$('.js-seconds').html(s);
 }
 
-var timeCheck = function(num) {
+var doubleDigitCheck = function(num) {
 	if (num < 10) {
 			num = "0" + num;
 	}
@@ -104,7 +104,7 @@ $(document).ready(function(){
 			break;
 	}
 
-	$('.js-date').html(day + " " + date.getDate() + " " + month);
+	$('.js-date').html(day + " " + doubleDigitCheck(date.getDate()) + " " + month);
 
 	chrome.topSites.get(stampSites);
 });
