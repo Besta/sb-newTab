@@ -11,5 +11,9 @@
 		"script/*",
 		"style/*",
     "font/*"
+  ],
+
+  "permissions": [
+    "topSites"
   ]
 }

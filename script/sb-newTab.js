@@ -9,9 +9,9 @@ function myCount() {
 	m = timeCheck(m);
 	s = timeCheck(s);
 
-	document.getElementById('hours').innerHTML = h;
-	document.getElementById('minutes').innerHTML = m;
-	document.getElementById('seconds').innerHTML = s;
+	$('.js-hours').html(h);
+	$('.js-minutes').html(m);
+	$('.js-seconds').html(s);
 }
 
 function timeCheck(i) {
@@ -19,6 +19,17 @@ function timeCheck(i) {
 			i = "0" + i;
 	}
 	return i;
+}
+
+
+function stampSites(sites) {
+	for(var i = 0; i < 8; i++){
+		var element = $(".js-sites__"+(i+1));
+
+		element.attr("href", sites[i].url);
+		element.find(".js-faveicon").attr("src", "https://s2.googleusercontent.com/s2/favicons?domain_url=" + sites[i].url);
+		element.find(".js-title").html(sites[i].title);
+	}
 }
 
 $(document).ready(function(){
@@ -54,5 +65,7 @@ $(document).ready(function(){
 			break;
 	}
 
-document.getElementById('date').innerHTML = day + " " + date.getDate() + "/" + date.getMonth()
+	document.getElementById('date').innerHTML = day + " " + date.getDate() + "/" + date.getMonth();
+
+	chrome.topSites.get(stampSites);
 });

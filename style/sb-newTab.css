@@ -11,7 +11,7 @@ html {
 body {
     font-family: Roboto;
     margin: 0;
-    fotn-size: 0;
+    font-size: 0;
 }
 
 .sb-clock {
@@ -26,4 +26,43 @@ body {
   color: white;
   text-align: center;
   text-shadow: 0 0 6px black;
+}
+
+.sb-sites {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px 10px;
+  max-width: 768px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.sb-sites a {
+  display: inline-block;
+  padding: 10px;
+  margin: auto;
+  width: 150px;
+  background: white;
+  text-align: left;
+  border-radius: 2px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.sb-sites__faveicon {
+    float: left;
+}
+
+.sb-sites__title {
+  font-size: 13px;
+  color: #212121;
+  padding-left: 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: calc(100% - 20px);
+  overflow: hidden;
 }
