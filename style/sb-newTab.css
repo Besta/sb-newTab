@@ -104,9 +104,12 @@ body:before {
 	margin: 60px auto;
 }
 
+.sb-crypto a {
+	text-decoration: none;
+}
+
 .sb-crypto div {
 	width: 180px;
-	background: #1565C0;
 	color: #fff;
 	font-size: 15px;
 	border-radius: 2px;
@@ -115,6 +118,14 @@ body:before {
 	padding: 10px 20px;
   box-sizing: border-box;
 	text-align: center;
+}
+
+.sb-btc {
+	background: #F7931A;
+}
+
+.sb-eth {
+	background: #467394;
 }
 
 .sb-crypto span {
