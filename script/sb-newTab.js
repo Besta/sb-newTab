@@ -1,8 +1,8 @@
-var myCount = function() {
-	var d = new Date();
-	var h = d.getHours();
-	var m = d.getMinutes();
-	var s = d.getSeconds();
+var setHour = function(first) {
+	var d = new Date(),
+			h = d.getHours(),
+			m = d.getMinutes(),
+			s = d.getSeconds();
 
 	h = doubleDigitCheck(h);
 	m = doubleDigitCheck(m);
@@ -11,6 +11,16 @@ var myCount = function() {
 	$('.js-hours').html(h);
 	$('.js-minutes').html(m);
 	$('.js-seconds').html(s);
+
+	if(first) {
+		$('.js-update-hours').html(h);
+		$('.js-update-minutes').html(m);
+		$('.js-update-seconds').html(s);
+	}
+	d = undefined;
+	h = undefined;
+	m = undefined;
+	s = undefined;
 }
 
 var doubleDigitCheck = function(num) {
@@ -33,6 +43,7 @@ var stampSites = function(sites) {
 var btcToEur = function() {
 	var opts = {
 		url: "https://api.coinbase.com/v2/exchange-rates?currency=BTC",
+		cache: false,
 		success: function(data) {
 			$(".js-btc").html(data.data.rates.EUR + "€");
 		}
@@ -44,6 +55,7 @@ var btcToEur = function() {
 var ethToEur = function() {
 	var opts = {
 		url: "https://api.coinbase.com/v2/exchange-rates?currency=ETH",
+		cache: false,
 		success: function(data) {
 			$(".js-eth").html(data.data.rates.EUR + "€");
 		}
@@ -53,9 +65,9 @@ var ethToEur = function() {
 }
 
 $(document).ready(function(){
-	myCount();
-	setInterval(function () {
-		myCount();
+	setHour(true);
+	setInterval(function() {
+		setHour(false);
 	}, 1000);
 
 	var date = new Date(),
@@ -132,6 +144,26 @@ $(document).ready(function(){
 	btcToEur();
 	ethToEur();
 
+	setInterval(function () {
+		btcToEur();
+		ethToEur();
 
+		var d = new Date(),
+				h = d.getHours(),
+				m = d.getMinutes(),
+				s = d.getSeconds();
 
+		h = doubleDigitCheck(h);
+		m = doubleDigitCheck(m);
+		s = doubleDigitCheck(s);
+
+		$('.js-update-hours').html(h);
+		$('.js-update-minutes').html(m);
+		$('.js-update-seconds').html(s);
+
+		d = undefined;
+		h = undefined;
+		m = undefined;
+		s = undefined;
+	}, 60000);
 });

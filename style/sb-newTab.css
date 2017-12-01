@@ -101,7 +101,7 @@ body:before {
 	max-width: 380px;
 	font-size: 13px;
   color: #212121;
-	margin: 60px auto;
+	margin: 60px auto 10px;
 }
 
 .sb-crypto a {
@@ -132,6 +132,14 @@ body:before {
 	font-size: 20px;
   padding-top: 5px;
   display: inline-block;
+}
+
+.sb-update {
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 0 6px black;
+  position: relative;
 }
 
 .sb-info {
