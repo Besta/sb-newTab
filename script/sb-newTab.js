@@ -30,6 +30,27 @@ var stampSites = function(sites) {
 	}
 }
 
+var btcToEur = function() {
+	var opts = {
+		url: "https://api.coinbase.com/v2/exchange-rates?currency=BTC",
+		success: function(data) {
+			$(".js-btc").html(data.data.rates.EUR + "€");
+		}
+	};
+
+	$.ajax(opts);
+}
+
+var ethToEur = function() {
+	var opts = {
+		url: "https://api.coinbase.com/v2/exchange-rates?currency=ETH",
+		success: function(data) {
+			$(".js-eth").html(data.data.rates.EUR + "€");
+		}
+	};
+
+	$.ajax(opts);
+}
 
 $(document).ready(function(){
 	myCount();
@@ -107,4 +128,10 @@ $(document).ready(function(){
 	$('.js-date').html(day + " " + doubleDigitCheck(date.getDate()) + " " + month);
 
 	chrome.topSites.get(stampSites);
+
+	btcToEur();
+	ethToEur();
+
+
+
 });
