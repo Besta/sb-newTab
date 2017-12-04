@@ -64,6 +64,17 @@ var ethToEur = function() {
 	$.ajax(opts);
 }
 
+var getWeather = function() {
+	var opts = {
+		url: "http://api.openweathermap.org/data/2.5/weather?id=3173435&APPID=1fdfb99e468758cadd6451adf71ca626&units=metric",
+		success: function(data) {
+			$(".js-weather").html(data.main.temp+"°C");
+		}
+	};
+
+	$.ajax(opts);
+}
+
 $(document).ready(function(){
 	setHour(true);
 	setInterval(function() {
@@ -166,4 +177,6 @@ $(document).ready(function(){
 		m = undefined;
 		s = undefined;
 	}, 60000);
+
+	getWeather();
 });

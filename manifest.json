@@ -17,7 +17,6 @@
   ],
 
   "permissions": [
-    "topSites",
-		"https://api.coinbase.com/"
+    "topSites"
   ]
 }
