@@ -62,20 +62,26 @@ var ethToEur = function() {
 	};
 
 	$.ajax(opts);
+	opts = undefined;
 }
 
 var getWeather = function() {
 	var opts = {
-		url: "http://api.openweathermap.org/data/2.5/weather?id=3173435&APPID=1fdfb99e468758cadd6451adf71ca626&units=metric",
+		url: "https://api.openweathermap.org/data/2.5/weather?id=3173435&APPID=1fdfb99e468758cadd6451adf71ca626&units=metric",
 		success: function(data) {
 			$(".js-weather").html(data.main.temp+"°C");
 		}
 	};
 
 	$.ajax(opts);
+	opts = undefined;
 }
 
 $(document).ready(function(){
+	var res = "1920x1080";
+	$("body").css("background-image", "url('https://source.unsplash.com/random/" + res + "')");
+	res = undefined;
+
 	setHour(true);
 	setInterval(function() {
 		setHour(false);
@@ -149,6 +155,10 @@ $(document).ready(function(){
 	}
 
 	$('.js-date').html(day + " " + doubleDigitCheck(date.getDate()) + " " + month);
+
+	date = undefined;
+	day = undefined;
+	month = undefined;
 
 	chrome.topSites.get(stampSites);
 
