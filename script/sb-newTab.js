@@ -78,10 +78,6 @@ var getWeather = function() {
 }
 
 $(document).ready(function(){
-	var res = "1920x1080";
-	$("body").css("background-image", "url('https://source.unsplash.com/random/" + res + "')");
-	res = undefined;
-
 	setHour(true);
 	setInterval(function() {
 		setHour(false);
